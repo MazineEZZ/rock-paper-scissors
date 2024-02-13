@@ -45,8 +45,20 @@
                 alert(`You chose ${userChoice}. The computer chose ${computerChoice}. ${result}`);
             }
 
+            // Gets the number of iterations
+            function getIterations() {
+                let userIter = (prompt("How many games would you like to play?"));
+                if (userIter < 0) {
+                    return getIterations();
+                } else {
+                    return userIter;
+                }
+            }
             // Call the main function to start the game
-            playGame();
+            const iterations = getIterations();
+            for (let i = 0; i < iterations; i++) {
+                playGame();
+            }
         </script>
     </body>
 </html>
