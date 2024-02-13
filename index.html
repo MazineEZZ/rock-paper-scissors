@@ -7,43 +7,46 @@
     </head>
     <body>
         <script>
-            
-            // All options
-            let options = ["rock", "paper", "scissors"];
-
-            // Prompt the user for their choice and then lower case it
-            let user_option = prompt("Enter your choice (Rock, Paper, Scissors)").toLowerCase();
-
-            // Randomly choose the computer's choice
-            let computer_option = options[Math.floor(Math.random() * 3)];
-
-            // Check if the user's option is equivalent to the computer's option
-            if (user_option == computer_option)
-            {
-                printWinner();
-            }
-            // Check all the conditions where the user is winning
-            else if ((user_option == "rock" && computer_option == "scissors") ||
-                (user_option == "paper" && computer_option == "rock") ||
-                (user_option == "scissors" && computer_option == "paper"))
-            {
-                printWinner("You");
-            }
-            else
-            {
-                printWinner("Computer");
-            }
-
-            // Computes who is the winner then prints out the winner
-            function printWinner(winner="") {
-                console.log(`The computer chose ${computer_option}`);
-                if (winner) {
-                    beater = (winner == "You") ? `${user_option} beats ${computer_option}` : `${computer_option} beats ${user_option}` 
-                    console.log(`${winner} won! ${beater}.`);
+            // Function to prompt the user for their choice and validate it
+            function getUserChoice() {
+                let userInput = prompt("Enter your choice (Rock, Paper, Scissors)").toLowerCase();
+                if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
+                    return userInput;
                 } else {
-                    console.log("It's a tie!")
+                    alert("Invalid choice. Please enter Rock, Paper, or Scissors.");
+                    return getUserChoice(); // Prompt again for valid input
                 }
             }
+
+            // Function to generate the computer's choice
+            function getComputerChoice() {
+                let options = ["rock", "paper", "scissors"];
+                return options[Math.floor(Math.random() * 3)];
+            }
+
+            // Function to determine the winner
+            function determineWinner(userChoice, computerChoice) {
+                if (userChoice === computerChoice) {
+                    return "It's a tie!";
+                } else if ((userChoice === "rock" && computerChoice === "scissors") ||
+                    (userChoice === "paper" && computerChoice === "rock") ||
+                    (userChoice === "scissors" && computerChoice === "paper")) {
+                    return "You win!";
+                } else {
+                    return "Computer wins!";
+                }
+            }
+
+            // Main function to play the game
+            function playGame() {
+                let userChoice = getUserChoice();
+                let computerChoice = getComputerChoice();
+                let result = determineWinner(userChoice, computerChoice);
+                alert(`You chose ${userChoice}. The computer chose ${computerChoice}. ${result}`);
+            }
+
+            // Call the main function to start the game
+            playGame();
         </script>
     </body>
 </html>
