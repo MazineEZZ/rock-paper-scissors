@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            
+            // All options
+            let options = ["rock", "paper", "scissors"];
+
+            // Prompt the user for their choice and then lower case it
+            let user_option = prompt("Enter your choice (Rock, Paper, Scissors)").toLowerCase();
+
+            // Randomly choose the computer's choice
+            let computer_option = options[Math.floor(Math.random() * 3)];
+
+            // Check if the user's option is equivalent to the computer's option
+            if (user_option == computer_option)
+            {
+                printWinner();
+            }
+            // Check all the conditions where the user is winning
+            else if ((user_option == "rock" && computer_option == "scissors") ||
+                (user_option == "paper" && computer_option == "rock") ||
+                (user_option == "scissors" && computer_option == "paper"))
+            {
+                printWinner("You");
+            }
+            else
+            {
+                printWinner("Computer");
+            }
+
+            // Computes who is the winner then prints out the winner
+            function printWinner(winner="") {
+                console.log(`The computer chose ${computer_option}`);
+                if (winner) {
+                    beater = (winner == "You") ? `${user_option} beats ${computer_option}` : `${computer_option} beats ${user_option}` 
+                    console.log(`${winner} won! ${beater}.`);
+                } else {
+                    console.log("It's a tie!")
+                }
+            }
+        </script>
+    </body>
+</html>
