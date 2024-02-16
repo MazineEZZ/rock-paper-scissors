@@ -1,9 +1,5 @@
 # rock-paper-scissors
 
-## classes:
-container
-    score-container
-        player
-        computer
-    info-container
-    options-container
+My first project using js, html and CSS!
+
+[Live preview](https://mazineezz.github.io/rock-paper-scissors/)
