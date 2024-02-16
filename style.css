@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:bold");
+
+body {
+    font-family: 'Poppins', ui-sans-serif;
+    color: #e9e9f6;
+    background-color: #070c0b;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    /* Secondary color */
+    background-color: #3b7067;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.score-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 250px;
+}
+
+.score-container .player, .score-container .computer {
+    /* Accent color */
+    background-color: #68b5a9;
+    border-radius: 10px;
+    padding: 10px;
+    width: 260px;
+    height: 140px;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.score-container .player p, .score-container .computer p {
+    font-size: 23px;
+}
+
+.info-container {
+    /* Primary color */
+    background-color: #acd0cb;
+    color: #04040d;
+    font-size: 20px;
+    padding: 1px;
+    margin: 35px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options-container button {
+    font-size: 50px;
+    background-color: #244943;
+    border-radius: 10px;
+    width: 200px;
+    height: 140px;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.options-container button:hover {
+
+}
