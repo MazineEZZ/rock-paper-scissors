@@ -5,69 +5,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" type="text/javascript" defer></script>
     </head>
     <body>
+        <!-- Container -->
         <div class="container">
             <h1>Rock, paper, scissors</h1>
             <div class="score-container">
                 <div class="player">
                     <h2>Your score</h2>
-                    <p>3</p>
+                    <p id="player-score">0</p>
                 </div>
                 <div class="computer">
                     <h2>Computer's score</h2>
-                    <p>2</p>
+                    <p id="computer-score">0</p>
                 </div>
             </div>
             <div class="info-container">
-                <p>Computer chose ROCK. </br> IT'S A TIE!</p>
+                <p id="round-result">Choose either rock, paper or scissors</br>NOW!</p>
             </div>
             <div class="options-container">
-                <button id="paper-button">🤚</button>
-                <button id="rock-button">✊</button>
-                <button id="scissors-button">✌️</button>
+                <button id="paper-button" name="paper">🤚</button>
+                <button id="rock-button" name="rock">✊</button>
+                <button id="scissors-button" name="scissors">✌️</button>
             </div>
         </div>
-        <script>
-            // Function to prompt the user for their choice and validate it
-            function getUserChoice() {
-                let userInput = prompt("Enter your choice (Rock, Paper, Scissors)").toLowerCase();
-                if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
-                    return userInput;
-                } else {
-                    alert("Invalid choice. Please enter Rock, Paper, or Scissors.");
-                    return getUserChoice(); // Prompt again for valid input
-                }
-            }
-
-            // Function to generate the computer's choice
-            function getComputerChoice() {
-                let options = ["rock", "paper", "scissors"];
-                return options[Math.floor(Math.random() * 3)];
-            }
-
-            // Function to determine the winner
-            function determineWinner(userChoice, computerChoice) {
-                if (userChoice === computerChoice) {
-                    return "It's a tie!";
-                } else if ((userChoice === "rock" && computerChoice === "scissors") ||
-                    (userChoice === "paper" && computerChoice === "rock") ||
-                    (userChoice === "scissors" && computerChoice === "paper")) {
-                    return "You win!";
-                } else {
-                    return "Computer wins!";
-                }
-            }
-
-            // Main function to play the game
-            function playGame() {
-                let userChoice = getUserChoice();
-                let computerChoice = getComputerChoice();
-                let result = determineWinner(userChoice, computerChoice);
-                alert(`You chose ${userChoice}. The computer chose ${computerChoice}. ${result}`);
-            }
-            
-            // Call the main function to start the game
-        </script>
     </body>
 </html>
